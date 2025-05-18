@@ -3,7 +3,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>RDR2 Map - Leaflet</title>
+  <title>RDR2 Map - uMap Ready</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
@@ -20,7 +20,7 @@
     const map = L.map('map', {
       crs: L.CRS.Simple,
       minZoom: 0,
-      maxZoom: 8,       // ← autorise un zoom "virtuel"
+      maxZoom: 9,
       center: [0, 0],
       zoom: 3
     });
@@ -28,8 +28,8 @@
     L.tileLayer('./tiles/{z}/{x}/{y}.png', {
       tileSize: 256,
       noWrap: true,
-      maxNativeZoom: 6, // ← le dernier niveau de tuiles réelles
-      maxZoom: 8,       // ← autorise un zoom "virtuel"
+      maxNativeZoom: 7,
+      maxZoom: 9,
       attribution: '© Fan map RDR2'
     }).addTo(map);
 
