@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,19 +7,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
-    html,body,#map{height:100%;margin:0;}
+    html, body, #map {
+      height: 100%;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    // dimensions of the image we included (987 x 768)
-    const w = 2048, h = 1593;
-    const map = L.map('map',{crs:L.CRS.Simple,minZoom:-2});
-    const bounds = [[0,0],[h,w]];
-    L.imageOverlay('rdr2-map.jpg', bounds).addTo(map);
-    map.fitBounds(bounds);
+    const map = L.map('map', {
+      crs: L.CRS.Simple,
+      minZoom: 0,
+      maxZoom: 8,       // ← autorise un zoom "virtuel"
+      center: [0, 0],
+      zoom: 3
+    });
+
+    L.tileLayer('./tiles/{z}/{x}/{y}.png', {
+      tileSize: 256,
+      noWrap: true,
+      maxNativeZoom: 6, // ← le dernier niveau de tuiles réelles
+      maxZoom: 8,       // ← autorise un zoom "virtuel"
+      attribution: '© Fan map RDR2'
+    }).addTo(map);
+
+    map.setView([0, 0], 3);
   </script>
 </body>
-</html>*
+</html>
