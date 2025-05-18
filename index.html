@@ -20,7 +20,7 @@
     const map = L.map('map', {
       crs: L.CRS.Simple,
       minZoom: 0,
-      maxZoom: 9,
+      maxZoom: 8,
       center: [0, 0],
       zoom: 3
     });
@@ -28,8 +28,8 @@
     L.tileLayer('./tiles/{z}/{x}/{y}.png', {
       tileSize: 256,
       noWrap: true,
-      maxNativeZoom: 7,
-      maxZoom: 9,
+      maxNativeZoom: 6,
+      maxZoom: 8,
       attribution: '© Fan map RDR2'
     }).addTo(map);
   </script>
